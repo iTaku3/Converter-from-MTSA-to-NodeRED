@@ -1,10 +1,21 @@
 # Node-RED-MTSA
 ## [使い方]
 ①MTSAで生成したControllerのTransitionsを.txtとして出力/保存  
-②ツール内のinputフォルダのなかに①のファイルを保存  
-③ツールを起動[javac Main.java -> java Main]  
+②ツール内の./inputフォルダのなかに①のファイルを保存  
+③ツールを起動
+```
+/Node-RED-MTSA user$ javac Main.java
+/Node-RED-MTSA user$ java Main
+```
 ④ツールの指示通り，ファイル名を入力する  
-⑤変換完了．outputフォルダ内の「Node-RED_flow.json」が自動変換されたファイルです．  
+```
+--notification-------------------------------------------------
+"./*input"フォルダ内にある，
+MTSAで合成したControllerのファイル名(拡張子も含む)を入力してください．
+---------------------------------------------------------------
+file address : ./input/{ここにファイル名を入力}
+```
+⑤変換完了．./outputフォルダ内の「Node-RED_flow.json」が自動変換されたファイルです．  
   
 [Uncontrollable Actionsのrequsetの送信先]  
 curl http://localhost:1880/Node-RED?req={アクション名}  
