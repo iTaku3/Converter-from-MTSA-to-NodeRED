@@ -254,7 +254,7 @@ class Converter
 				bw.newLine();
 				bw.write("\"y\": "+ y_position +",");
 				bw.newLine();
-				bw.write("\"wires\": [[\"" + transition_list.get(1) + "_set\"]]");
+				bw.write("\"wires\": [[\""+transition_list.get(0)+":"+transition_list.get(1)+"_set\"]]");
 				bw.newLine();
 				bw.write("},");
 				bw.newLine();
@@ -263,7 +263,7 @@ class Converter
 				//set actionノード
 				bw.write("{");
 				bw.newLine();
-				bw.write("\"id\": \"" + transition_list.get(1) + "_set\",");
+				bw.write("\"id\": \""+transition_list.get(0)+":"+transition_list.get(1)+"_set\",");
 				bw.newLine();
 				bw.write("\"type\": \"function\",");
 				bw.newLine();
@@ -279,7 +279,7 @@ class Converter
 				bw.newLine();
 				bw.write("\"y\": "+ y_position +",");
 				bw.newLine();
-				bw.write("\"wires\": [[\"" + transition_list.get(1) + "\"]]");
+				bw.write("\"wires\": [[\""+transition_list.get(0)+":"+transition_list.get(1)+"\"]]");
 				bw.newLine();
 				bw.write("},");
 				bw.newLine();
@@ -288,7 +288,7 @@ class Converter
 				//ifttt action triggerノード
 				bw.write("{");
 				bw.newLine();
-				bw.write("\"id\": \"" + transition_list.get(1) + "\",");
+				bw.write("\"id\": \""+transition_list.get(0)+":"+transition_list.get(1)+"\",");
 				bw.newLine();
 				bw.write("\"type\": \"http request\",");
 				bw.newLine();
