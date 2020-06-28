@@ -9,6 +9,10 @@ import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
+//自身の使う環境に応じて変更
+String ifttt_key = "cPFBtMhxOsUhT968fhqXb9";
+
+
 class Converter
 {
 	public static void convert(List<String> lts_data)
@@ -298,7 +302,7 @@ class Converter
 				bw.newLine();
 				bw.write("\"paytoqs\": false,");
 				bw.newLine();
-				bw.write("\"url\": \"https://maker.ifttt.com/trigger/"+ transition_list.get(1) +"/with/key/cPFBtMhxOsUhT968fhqXb9\",");
+				bw.write("\"url\": \"https://maker.ifttt.com/trigger/"+ transition_list.get(1) +"/with/key/"+ifttt_key+"\",");
 				bw.newLine();
 				bw.write("\"persist\": false,");
 				bw.newLine();
