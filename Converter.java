@@ -9,9 +9,6 @@ import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
-//自身の使う環境に応じて変更
-String ifttt_key = "cPFBtMhxOsUhT968fhqXb9";
-
 
 class Converter
 {
@@ -24,6 +21,9 @@ class Converter
 		List<String> uncontrollable_actions = new ArrayList<String>();
 		System.out.println(controllable_actions);
 		// List<List<String>> transitions_list = new ArrayList<>();
+		
+		//自身の使う環境に応じて変更
+		String ifttt_key = "cPFBtMhxOsUhT968fhqXb9";
 
 		try{
 		  File file = new File("./*output/Node-RED_flow.json");
