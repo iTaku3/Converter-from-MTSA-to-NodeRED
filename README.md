@@ -28,3 +28,7 @@ https://maker.ifttt.com/trigger/{アクション名}/with/key/{IFTTTアカウン
 複数のControllable Actionが発火可能なStateや，Mixed StateはERRORとして処理されます．  
 この2つの状況を判定する部分は作っているので．  
 この際の挙動を追加する時などはそこに新たにメソッドを追加すればいいと思います．  
+  
+Controllable ActionのAction Setは今ハードコーディングしています.（Converter.java:20行目）  
+他のモデルで試す際は，ここを書き換えてください．
+(Controllable Action Setの入力の仕様が明確に決まり次第，変更します．)
