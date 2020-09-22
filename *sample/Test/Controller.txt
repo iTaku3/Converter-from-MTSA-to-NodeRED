@@ -1,0 +1,35 @@
+Process:
+	Environment
+States:
+	16
+Transitions:
+	Environment = Q0,
+	Q0	= (reqOut -> Q1
+		  |reqEnter_B -> Q2
+		  |reqEnter_A -> Q3),
+	Q1	= (deny_Out -> Q0),
+	Q2	= (deny_B -> Q0),
+	Q3	= (deny_A -> Q0
+		  |allow_A[1] -> Q4),
+	Q4	= (reqOut -> Q5
+		  |reqEnter_B -> Q6
+		  |reqEnter_A -> Q15),
+	Q5	= (deny_Out -> Q4),
+	Q6	= (deny_B -> Q4
+		  |allow_B[1] -> Q7),
+	Q7	= (reqOut -> Q8
+		  |reqEnter_B -> Q9
+		  |reqEnter_A -> Q10),
+	Q8	= (allow_Out -> Q0
+		  |deny_Out -> Q7),
+	Q9	= (deny_B -> Q7),
+	Q10	= (deny_A -> Q7
+		  |allow_A[1] -> Q11),
+	Q11	= (reqOut -> Q12
+		  |reqEnter_B -> Q13
+		  |reqEnter_A -> Q14),
+	Q12	= (allow_Out -> Q4
+		  |deny_Out -> Q11),
+	Q13	= (deny_B -> Q11),
+	Q14	= (deny_A -> Q11),
+	Q15	= (deny_A -> Q4).

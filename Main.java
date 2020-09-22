@@ -22,9 +22,11 @@ class Main
     System.out.print("file address : ./input/");
     Scanner scan = new Scanner(System.in);
     String file_name = scan.nextLine();
+    System.out.println("-------------------------------");
 
     try{
-      File file = new File("./*input/"+file_name);
+      //File file = new File("./*input/"+file_name);
+      File file = new File("./*sample/Test/Controller.txt");
 
       if (checkBeforeReadfile(file)){
         BufferedReader br = new BufferedReader(new FileReader(file));
@@ -42,7 +44,10 @@ class Main
         	lts_data.remove(0);
         }
         //System.out.println(lts_data);
+        long start = System.currentTimeMillis();
         Converter.convert(lts_data);
+        long end = System.currentTimeMillis();
+        System.out.println("実行時間："+ (end - start)  + "ms");
 
         br.close();
       }else{

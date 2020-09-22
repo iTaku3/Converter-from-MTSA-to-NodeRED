@@ -1,0 +1,33 @@
+Process:
+	OldController
+States:
+	21
+Transitions:
+	OldController = Q0,
+	Q0	= (endOfTS -> Q4),
+	Q1	= (lastEmergencyBrake -> Q8),
+	Q2	= (idle_c -> Q6),
+	Q3	= (lastEmergencyBrake -> Q10),
+	Q4	= (idle_c -> Q7
+		  |requestEnter -> Q13),
+	Q5	= (enterAllowed[0..1] -> Q3),
+	Q6	= (enterCrossing -> Q14),
+	Q7	= (lastBrake -> Q11),
+	Q8	= (idle_c -> Q20),
+	Q9	= (endOfTS -> Q4),
+	Q10	= (emergencyBrake -> Q16),
+	Q11	= (requestEnter -> Q19),
+	Q12	= (lastBrake -> Q17),
+	Q13	= (enterAllowed[1] -> Q12
+		  |enterAllowed[0] -> Q15),
+	Q14	= (endOfTS -> Q4),
+	Q15	= (lastBrake -> Q18),
+	Q16	= (endOfTS -> Q4),
+	Q17	= (idle_c -> Q1
+		  |requestEnter -> Q19),
+	Q18	= (idle_c -> Q3
+		  |requestEnter -> Q5
+		  |{brake, emergencyBrake} -> Q9),
+	Q19	= (enterAllowed[1] -> Q1
+		  |enterAllowed[0] -> Q3),
+	Q20	= (noReturn -> Q2).
