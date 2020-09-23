@@ -439,7 +439,6 @@ class Converter
 				bw.write("\"wires\": [[\"" + transition_list.get(0) + "\"]]");
 				bw.newLine();
 				bw.write("}");
-				bw.newLine();
 				y_position = y_position + 75;
 			}
 			else if (controllableAction_count == (transition_list.size()-1)/2)
@@ -470,7 +469,7 @@ class Converter
 				bw.write("},");
 				bw.newLine();
 				
-				//rondomノード
+				//action setノード
 				bw.write("{");
 				bw.newLine();
 				bw.write("\"id\": \"" + transition_list.get(0) + "_set\",");
@@ -612,6 +611,316 @@ class Converter
 			else
 			{
 				System.out.println("  > Mixed State(ERROR)");
+
+				for(int n = 1 ; n <= (transition_list.size()-1)/2 ; n++)
+				{
+					if(!controllable_actions.contains(transition_list.get(2*n-1)))
+					{
+						if(!uncontrollable_actions.contains(transition_list.get(2*n-1)))
+						{
+							uncontrollable_actions.add(transition_list.get(2*n-1));
+						}
+					}
+				}
+
+				int ua_count = 0; //Uncontrollable Actionsの数
+				int ca_count = 0; //Controllable Actionsの数
+
+				//set stateノード
+				bw.write("{");
+				bw.newLine();
+				bw.write("\"id\": \"" + transition_list.get(0) + "\",");
+				bw.newLine();
+				bw.write("\"type\": \"function\",");
+				bw.newLine();
+				bw.write("\"z\": \"flow_name\",");
+				bw.newLine();
+				bw.write("\"name\": \"" + transition_list.get(0) + "\",");
+				bw.newLine();
+				bw.write("\"func\": \"flow.set(\\\"State\\\", \\\""+ transition_list.get(0) +"\\\");\\n msg.payload = flow.get(\\\"State\\\");\\n return msg;\",");
+				bw.newLine();
+				bw.write("\"noerr\": 0,");
+				bw.newLine();
+				bw.write("\"x\": "+ x_position +",");
+				bw.newLine();
+				bw.write("\"y\": "+ y_position +",");
+				bw.newLine();
+				bw.write("\"wires\": [[\"" + transition_list.get(0) + "_check_request\"]]");
+				bw.newLine();
+				bw.write("},");
+				bw.newLine();
+				y_position = y_position + 75;
+
+				//request 受信ノード
+				bw.write("{");
+				bw.newLine();
+				bw.write("\"id\": \"" + transition_list.get(0) + "_check_request\",");
+				bw.newLine();
+				bw.write("\"type\": \"switch\",");
+				bw.newLine();
+				bw.write("\"z\": \"flow_name\",");
+				bw.newLine();
+				bw.write("\"name\": \"" + transition_list.get(0) + ": check request\",");
+				bw.newLine();
+				bw.write("\"property\": \"action\",");
+				bw.newLine();
+				bw.write("\"propertyType\": \"flow\",");
+				bw.newLine();
+				bw.write("\"rules\": [");
+				for(int n = 1 ; n <= (transition_list.size()-1)/2 ; n++)
+				{
+					if(uncontrollable_actions.contains(transition_list.get(2*n-1)))
+					{
+						bw.write("{\"t\": \"eq\",\"v\": \"" + transition_list.get(2*n-1) + "\",\"vt\": \"str\"},");
+						ua_count = ua_count+1;
+					}
+				}
+				bw.write("{\"t\": \"else\"}],");
+				bw.newLine();
+				bw.write("\"checkall\": \"true\",");
+				bw.newLine();
+				bw.write("\"repair\": false,");
+				bw.newLine();
+				bw.write("\"x\": "+ x_position +",");
+				bw.newLine();
+				bw.write("\"y\": "+ y_position +",");
+				bw.newLine();
+				bw.write("\"wires\": ["); //１個目が次のState, ２個目が前のState
+				for(int n = 1 ; n <= (transition_list.size()-1)/2 ; n++)
+				{
+					if(uncontrollable_actions.contains(transition_list.get(2*n-1)))
+					{
+						bw.write("[\"" + transition_list.get(2*n) + "\"],");
+					}
+				}
+				bw.write("[\"" + transition_list.get(0) + "_wait\"]]");
+				bw.newLine();
+				bw.write("},");
+				bw.newLine();
+				y_position = y_position + 75;
+
+				//request waitノード
+				bw.write("{");
+				bw.newLine();
+				bw.write("\"id\": \"" + transition_list.get(0) + "_wait\",");
+				bw.newLine();
+				bw.write("\"type\": \"function\",");
+				bw.newLine();
+				bw.write("\"z\": \"flow_name\",");
+				bw.newLine();
+				bw.write("\"name\": \"wait request (10s)\",");
+				bw.newLine();
+				bw.write("\"func\": \"var d = new Date();\\n var ms = d.getTime();\\n var time = flow.get(\\\"Time\\\");\\n if(ms-time>10000)//10秒\\n {\\n    flow.set(\\\"boolean\\\", true);\\n }\\n else\\n {\\n    flow.set(\\\"boolean\\\", false);\\n }\\n return msg;\",");
+				bw.newLine();
+				bw.write("\"noerr\": 0,");
+				bw.newLine();
+				bw.write("\"x\": "+ x_position +",");
+				bw.newLine();
+				bw.write("\"y\": "+ y_position +",");
+				bw.newLine();
+				bw.write("\"wires\": [[\"" + transition_list.get(0) + "_check_time\"]]");
+				bw.newLine();
+				bw.write("},");
+				bw.newLine();
+
+				//wait time確認ノード
+				bw.write("{");
+				bw.newLine();
+				bw.write("\"id\": \"" + transition_list.get(0) + "_check_time\",");
+				bw.newLine();
+				bw.write("\"type\": \"switch\",");
+				bw.newLine();
+				bw.write("\"z\": \"flow_name\",");
+				bw.newLine();
+				bw.write("\"name\": \"check passing time\",");
+				bw.newLine();
+				bw.write("\"property\": \"action\",");
+				bw.newLine();
+				bw.write("\"propertyType\": \"flow\",");
+				bw.newLine();
+				bw.write("\"rules\": [{\"t\": \"true\"},{\"t\":\"false\"}],");
+				bw.newLine();
+				bw.write("\"checkall\": \"true\",");
+				bw.newLine();
+				bw.write("\"repair\": false,");
+				bw.newLine();
+				bw.write("\"x\": "+ x_position +",");
+				bw.newLine();
+				bw.write("\"y\": "+ y_position +",");
+				bw.newLine();
+				bw.write("\"wires\": [[\""+ transition_list.get(0) +"_set\"],[\""+ transition_list.get(0) +"\"]]"); 
+				bw.newLine();
+				bw.write("},");
+				bw.newLine();
+
+				//controllable action setノード
+				bw.write("{");
+				bw.newLine();
+				bw.write("\"id\": \"" + transition_list.get(0) + "_set\",");
+				bw.newLine();
+				bw.write("\"type\": \"function\",");
+				bw.newLine();
+				bw.write("\"z\": \"flow_name\",");
+				bw.newLine();
+				bw.write("\"name\": \"Modifiable Area\",");
+				bw.newLine();
+				bw.write("\"func\": \"var action = new Array(");
+				for(int n = 1 ; n <= (transition_list.size()-1)/2 ; n++)
+				{
+					if(controllable_actions.contains(transition_list.get(2*n-1)))
+					{
+						bw.write("\\\"" + transition_list.get(2*n-1) + "\\\"");
+						ca_count = ca_count + 1;
+						if(ca_count < (transition_list.size()-1)/2 - ua_count)
+						{
+							bw.write(", ");	
+						}
+					}
+				}
+				bw.write(");\\n var rnd = Math.floor( Math.random() * "+ ca_count +");\\n flow.set(\\\"action\\\", action[rnd]);\\n return msg;\",");
+				bw.newLine();
+				bw.write("\"noerr\": 0,");
+				bw.newLine();
+				bw.write("\"x\": "+ (x_position+200) +",");
+				bw.newLine();
+				bw.write("\"y\": "+ y_position +",");
+				bw.newLine();
+				bw.write("\"wires\": [[\"" + transition_list.get(0) + "_check_operation\"]]");
+				bw.newLine();
+				bw.write("},");
+				bw.newLine();
+				ca_count = 0;
+
+				//controllable action決定ノード
+				bw.write("{");
+				bw.newLine();
+				bw.write("\"id\": \"" + transition_list.get(0) + "_check_operation\",");
+				bw.newLine();
+				bw.write("\"type\": \"switch\",");
+				bw.newLine();
+				bw.write("\"z\": \"flow_name\",");
+				bw.newLine();
+				bw.write("\"name\": \"" + transition_list.get(0) + ": check operation\",");
+				bw.newLine();
+				bw.write("\"property\": \"action\",");
+				bw.newLine();
+				bw.write("\"propertyType\": \"flow\",");
+				bw.newLine();
+				bw.write("\"rules\": [");
+				for(int n = 1 ; n <= (transition_list.size()-1)/2 ; n++)
+				{
+					if(controllable_actions.contains(transition_list.get(2*n-1)))
+					{
+						bw.write("{\"t\": \"eq\",\"v\": \"" + transition_list.get(2*n-1) + "\",\"vt\": \"str\"}");
+						ca_count = ca_count + 1;
+						if(ca_count < (transition_list.size()-1)/2 - ua_count)
+						{
+							bw.write(", ");	
+						}
+					}
+				}
+				ca_count = 0;
+				bw.write("],");
+				bw.newLine();
+				bw.write("\"checkall\": \"true\",");
+				bw.newLine();
+				bw.write("\"repair\": false,");
+				bw.newLine();
+				bw.write("\"x\": "+ (x_position+400) +",");
+				bw.newLine();
+				bw.write("\"y\": "+ y_position +",");
+				bw.newLine();
+				bw.write("\"wires\": ["); //１個目が次のState, ２個目が前のState
+				for(int n = 1 ; n <= (transition_list.size()-1)/2 ; n++)
+				{
+					if(controllable_actions.contains(transition_list.get(2*n-1)))
+					{
+						bw.write("[\""+ transition_list.get(0) +"_"+ transition_list.get(2*n-1) + "_set\"]");
+						ca_count = ca_count + 1;
+						if(ca_count < (transition_list.size()-1)/2 - ua_count)
+						{
+							bw.write(", ");	
+						}
+					}
+				}
+				ca_count = 0;
+				bw.write("]");
+				bw.newLine();
+				bw.write("},");
+				bw.newLine();
+
+				//controllable action
+				for (int n = 1 ; n <= (transition_list.size()-1)/2 ; n++)
+				{
+					if (controllable_actions.contains(transition_list.get(2*n-1)))
+					{
+						ca_count = ca_count + 1;
+						//アクションセットノード
+						bw.write("{");
+						bw.newLine();
+						bw.write("\"id\": \""+transition_list.get(0)+"_"+transition_list.get(2*n-1)+"_set\",");
+						bw.newLine();
+						bw.write("\"type\": \"function\",");
+						bw.newLine();
+						bw.write("\"z\": \"flow_name\",");
+						bw.newLine();
+						bw.write("\"name\": \"" + transition_list.get(2*n-1) + "_set\",");
+						bw.newLine();
+						bw.write("\"func\": \"msg.payload = \\\""+ transition_list.get(2*n-1) +"\\\";\\nflow.set(\\\"action\\\", msg.payload);\\nreturn msg;\",");
+						bw.newLine();
+						bw.write("\"noerr\": 0,");
+						bw.newLine();
+						bw.write("\"x\": "+ (x_position+700) +",");
+						bw.newLine();
+						bw.write("\"y\": "+ y_position +",");
+						bw.newLine();
+						bw.write("\"wires\": [[\""+transition_list.get(0)+"_"+transition_list.get(2*n-1)+"\"]]");
+						bw.newLine();
+						bw.write("},");
+						bw.newLine();
+
+						//iftttトリガーノード
+						bw.write("{");
+						bw.newLine();
+						bw.write("\"id\": \""+transition_list.get(0)+"_"+transition_list.get(2*n-1)+"\",");
+						bw.newLine();
+						bw.write("\"type\": \"http request\",");
+						bw.newLine();
+						bw.write("\"z\": \"flow_name\",");
+						bw.newLine();
+						bw.write("\"name\": \"" + transition_list.get(2*n-1) + "\",");
+						bw.newLine();
+						bw.write("\"method\": \"POST\",");
+						bw.newLine();
+						bw.write("\"ret\": \"txt\",");
+						bw.newLine();
+						bw.write("\"paytoqs\": false,");
+						bw.newLine();
+						bw.write("\"url\": \"https://maker.ifttt.com/trigger/"+ transition_list.get(2*n-1) +"/with/key/"+ifttt_key+"\",");
+						bw.newLine();
+						bw.write("\"persist\": false,");
+						bw.newLine();
+						bw.write("\"x\": "+ (x_position+1000) +",");
+						bw.newLine();
+						bw.write("\"y\": "+ y_position +",");
+						bw.newLine();
+						bw.write("\"wires\": [[\"" + transition_list.get(2*n) + "\"]]");
+						bw.newLine();
+
+						if(ca_count < (transition_list.size()-1)/2 - ua_count)
+						{
+							bw.write("},");
+							bw.newLine();
+							y_position = y_position + 40;
+						}
+						else
+						{
+							bw.write("}");
+							y_position = y_position + 50;
+						}
+					}
+				}
+				ca_count = 0;
 			}
 
 			transition_count++;
