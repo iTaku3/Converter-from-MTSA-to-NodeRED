@@ -245,7 +245,7 @@ class Converter
 			//状態の判定
 			if(controllableAction_count == 1 && controllableAction_count == (transition_list.size()-1)/2)
 			{
-				System.out.println("  > Controllable State");
+				System.out.println("  > Deterministic Controllable State");
 
 				//set stateノード
 				bw.write("{");
@@ -443,7 +443,7 @@ class Converter
 			}
 			else if (controllableAction_count == (transition_list.size()-1)/2)
 			{
-				System.out.println("  > Controllable State(ERROR)");
+				System.out.println("  > Non-deterministic Controllable State");
 
 				//set stateノード
 				bw.write("{");
@@ -610,7 +610,7 @@ class Converter
 			}
 			else
 			{
-				System.out.println("  > Mixed State(ERROR)");
+				System.out.println("  > Mixed State");
 
 				for(int n = 1 ; n <= (transition_list.size()-1)/2 ; n++)
 				{

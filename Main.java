@@ -25,8 +25,8 @@ class Main
     System.out.println("-------------------------------");
 
     try{
-      //File file = new File("./*input/"+file_name);
-      File file = new File("./*sample/TwoRoom/Controller.txt");
+      File file = new File("./*input/"+file_name);
+      // File file = new File("./*sample/TwoRoom/Controller.txt");
 
       if (checkBeforeReadfile(file)){
         BufferedReader br = new BufferedReader(new FileReader(file));
