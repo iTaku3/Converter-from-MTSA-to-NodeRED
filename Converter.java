@@ -287,7 +287,7 @@ class Converter
 				bw.newLine();
 				bw.write("\"noerr\": 0,");
 				bw.newLine();
-				bw.write("\"x\": "+ (x_position+200) +",");
+				bw.write("\"x\": "+ (x_position+700) +",");
 				bw.newLine();
 				bw.write("\"y\": "+ y_position +",");
 				bw.newLine();
@@ -318,7 +318,7 @@ class Converter
 				bw.newLine();
 				bw.write("\"persist\": false,");
 				bw.newLine();
-				bw.write("\"x\": "+ (x_position+400) +",");
+				bw.write("\"x\": "+ (x_position+1000) +",");
 				bw.newLine();
 				bw.write("\"y\": "+ y_position +",");
 				bw.newLine();
@@ -351,7 +351,7 @@ class Converter
 				bw.newLine();
 				bw.write("\"y\": "+ y_position +",");
 				bw.newLine();
-				bw.write("\"wires\": [[\"" + transition_list.get(0) + "_check\"]]");
+				bw.write("\"wires\": [[\"" + transition_list.get(0) + "_check_request\"]]");
 				bw.newLine();
 				bw.write("},");
 				bw.newLine();
@@ -360,13 +360,13 @@ class Converter
 				//request 受信ノード
 				bw.write("{");
 				bw.newLine();
-				bw.write("\"id\": \"" + transition_list.get(0) + "_check\",");
+				bw.write("\"id\": \"" + transition_list.get(0) + "_check_request\",");
 				bw.newLine();
 				bw.write("\"type\": \"switch\",");
 				bw.newLine();
 				bw.write("\"z\": \"flow_name\",");
 				bw.newLine();
-				bw.write("\"name\": \"" + transition_list.get(0) + "_check\",");
+				bw.write("\"name\": \"" + transition_list.get(0) + ": check request\",");
 				bw.newLine();
 				bw.write("\"property\": \"action\",");
 				bw.newLine();
@@ -494,7 +494,7 @@ class Converter
 				bw.newLine();
 				bw.write("\"y\": "+ y_position +",");
 				bw.newLine();
-				bw.write("\"wires\": [[\"" + transition_list.get(0) + "_check\"]]");
+				bw.write("\"wires\": [[\"" + transition_list.get(0) + "_check_operation\"]]");
 				bw.newLine();
 				bw.write("},");
 				bw.newLine();
@@ -502,13 +502,13 @@ class Converter
 				//switch(変数判定)ノード
 				bw.write("{");
 				bw.newLine();
-				bw.write("\"id\": \"" + transition_list.get(0) + "_check\",");
+				bw.write("\"id\": \"" + transition_list.get(0) + "_check_operation\",");
 				bw.newLine();
 				bw.write("\"type\": \"switch\",");
 				bw.newLine();
 				bw.write("\"z\": \"flow_name\",");
 				bw.newLine();
-				bw.write("\"name\": \"" + transition_list.get(0) + "_check\",");
+				bw.write("\"name\": \"" + transition_list.get(0) + ": check operation\",");
 				bw.newLine();
 				bw.write("\"property\": \"action\",");
 				bw.newLine();

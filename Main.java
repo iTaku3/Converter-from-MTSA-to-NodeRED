@@ -19,7 +19,7 @@ class Main
     System.out.println("\"./*input\"フォルダ内にある，");
     System.out.println("MTSAで合成したControllerのファイル名(拡張子も含む)を入力してください．");
     System.out.println("---------------------------------------------------------------");
-    System.out.print("file address : ./input/");
+    System.out.print("file address : ./*input/");
     Scanner scan = new Scanner(System.in);
     String file_name = scan.nextLine();
     System.out.println("-------------------------------");
