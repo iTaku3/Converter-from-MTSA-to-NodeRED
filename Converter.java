@@ -19,7 +19,8 @@ class Converter
 		// controllable_actions.addAll(Arrays.asList("resRoomStatus", "allow_A", "deny_A", "allow_Out", "lock_A", "unLock_A"));
 		
 		/*ArtGarelly*/
-		List<String> controllable_actions = Arrays.asList("allow_A[1]", "deny_A", "allow_B[1]", "deny_B", "allow_Out", "deny_Out");
+		List<String> controllable_actions = action_data;
+		// List<String> controllable_actions = Arrays.asList("allow_A[1]", "deny_A", "allow_B[1]", "deny_B", "allow_Out", "deny_Out");
 		// List<String> controllable_actions = Arrays.asList("resRoomStatus", "allow_A", "deny_A", "allow_Out", "lock_A", "unLock_A");
 		//List<String> controllable_actions = Arrays.asList("resRoomStatus", "lock_Hall", "lock_A", "lock_B", "lock_C", "lock_D", "unLock_Hall", "unLock_A", "unLock_B", "unLock_C", "unLock_D",
 		//												  "allow_Hall", "allow_A", "allow_B", "allow_C", "allow_D", "allow_Out", "deny_Hall", "deny_A", "deny_B", "deny_C", "deny_D", "deny_Out");
@@ -906,9 +907,11 @@ int transition_count = 0;
 
 		  bw.close();
 
-		  System.out.println("-------------------------------");
-		  System.out.println(controllable_actions);
-		  System.out.println(uncontrollable_actions);
+		  System.out.println("--------------------------------------------------------------");
+		  System.out.println();
+		  System.out.println("■ controllable actions   \n > "+controllable_actions);
+		  System.out.println("■ uncontrollable actions \n > "+uncontrollable_actions);
+		  System.out.println();
 		}catch(IOException e){
 		  System.out.println(e);
 		}

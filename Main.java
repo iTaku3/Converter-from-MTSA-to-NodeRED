@@ -15,24 +15,29 @@ class Main
 {
   public static void main(String args[])
   {
-    System.out.println("--notification-------------------------------------------------");
-    System.out.println("\'./*input\'フォルダ内にある，各ファイルのアドレスを入力してください．");
-    System.out.println(" > controller file : MTSAで合成したControllerのファイル名(拡張子も含む)");
-    System.out.println(" > connexion file  : Controllerにおけるactionに対応するノードを記述したファイル名(拡張子も含む)");
-    System.out.println("---------------------------------------------------------------");
+    System.out.println();
+    System.out.println("= notification ================================================");
+    System.out.println("Enter the address of the controller file & connexion file. ");
+    System.out.println("[!] You need to write a file extension (eg \".txt\").");
+    System.out.println(" -------------------------------------------------------------");
+    System.out.println(" > controller file : The name of the controller output file synthesized by MTSA.");
+    System.out.println(" > connexion file  : The name of the file that describes the Controllable action and node information.");
+    System.out.println("===============================================================");
+    System.out.println();
     System.out.print("controller file address : ./*input/");
     Scanner scan = new Scanner(System.in);
     String controller_file_name = scan.nextLine();
     System.out.print("connexion file address  : ./*input/");
     String connexion_file_name = scan.nextLine();
-    System.out.println("-------------------------------");
+    System.out.println();
+    System.out.println("--------------------------------------------------------------");
 
     System.out.println(controller_file_name);  
     System.out.println(connexion_file_name);
 
     //Sample
-    controller_file_name = "Controller.txt";
-    connexion_file_name  = "Connexion.txt";
+    // controller_file_name = "Controller.txt";
+    // connexion_file_name  = "Connexion.txt";
 
     try{
       File controller_file = new File("./*input/"+controller_file_name);
@@ -84,14 +89,16 @@ class Main
         br.close();
 
         //System.out.println(lts_data);
-        System.out.println(action_data+"\n");
-        System.out.println(node_data+"\n");
+        // System.out.println(action_data+"\n");
+        // System.out.println(node_data+"\n");
         long start = System.currentTimeMillis();
         Converter.convert(lts_data, action_data, node_data);
         long end = System.currentTimeMillis();
-        System.out.println("実行時間："+ (end - start)  + "ms");
+        System.out.println("Conversion complete🍺　[execution time："+ (end - start)  + "ms]");
+        System.out.println("Please read the output file (\'./*output/Node-RED_flow.json\') with Node-RED.");
+        System.out.println();
       }else{
-        System.out.println("ファイルが見つからないか開けません");
+        System.out.println("File not found.");
       }
     }catch(FileNotFoundException e){
       System.out.println(e);
