@@ -9,7 +9,8 @@
 /Node-RED-MTSA user$ javac Main.java
 /Node-RED-MTSA user$ java Main
 ```
-④ツールの指示通り，ファイル名を入力する  
+④ツールの指示通り，ファイル名を入力する 
+※ <FILE NAME>には①と②のファイル名を入力します（ファイル拡張子を含む）  
 ```
 = notification ================================================
 Enter the address of the controller file & connexion file. 
@@ -21,10 +22,6 @@ Enter the address of the controller file & connexion file.
 
 controller file address : ./*input/<FILE NAME>
 connexion file address  : ./*input/<FILE NAME>
-
---------------------------------------------------------------
-
-※ <FILE NAME>には①と②のファイル名を入力します（ファイル拡張子を含む）
 ```
 ⑤変換完了．./outputフォルダ内の「Node-RED_flow.json」が自動変換されたファイルです．  
   
