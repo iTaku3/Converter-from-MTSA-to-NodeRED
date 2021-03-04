@@ -25,16 +25,16 @@ connexion file address  : ./*input/<FILE NAME>
 ```
 ⑤変換完了．./outputフォルダ内の「Node-RED_flow.json」が自動変換されたファイルです．  
   
-[Uncontrollable Actionsのrequsetの送信先]  
+### Uncontrollable Actionsのrequsetの送信先] 
 curl http://localhost:1880/Node-RED?req={アクション名}  
 
 ## [入力ファイルの形式]
 ### controller file
-MTSAで合成したContorllerのtransitionsを保存したファイル．
+MTSAで合成したContorllerのtransitionsを保存したファイル．  
 デフォルトではController.txtで出力される．
 
 ### connexion file
-MTSAで合成したControllerにおけるactionが，Node-RED上でどのような役割を持つか記述したもの．
+MTSAで合成したControllerにおけるactionが，Node-RED上でどのような役割を持つか記述したもの．  
 記述形式は次のとおりである．
 
 ```
