@@ -168,13 +168,13 @@
 {
 "id": "Q1_deny_A",
 "type": "http request",
-"z": "flow_name",
 "name": "deny_A",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/deny_A/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
 "y": 350,
 "wires": [["Q0"]]
@@ -192,13 +192,13 @@
 {
 "id": "Q1_allow_A[1]",
 "type": "http request",
-"z": "flow_name",
 "name": "allow_A[1]",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/allow_A[1]/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
 "y": 390,
 "wires": [["Q2"]]
@@ -336,13 +336,13 @@
 {
 "id": "Q3_deny_B",
 "type": "http request",
-"z": "flow_name",
 "name": "deny_B",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/deny_B/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
 "y": 740,
 "wires": [["Q2"]]
@@ -361,13 +361,13 @@
 {
 "id": "Q3_allow_B[1]",
 "type": "http request",
-"z": "flow_name",
 "name": "allow_B[1]",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/allow_B[1]/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
 "y": 780,
 "wires": [["Q4"]]
@@ -505,13 +505,13 @@
 {
 "id": "Q5_allow_Out",
 "type": "http request",
-"z": "flow_name",
 "name": "allow_Out",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/allow_Out/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
 "y": 1130,
 "wires": [["Q0"]]
@@ -530,13 +530,13 @@
 {
 "id": "Q5_deny_Out",
 "type": "http request",
-"z": "flow_name",
 "name": "deny_Out",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/deny_Out/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
 "y": 1170,
 "wires": [["Q4"]]
@@ -590,13 +590,13 @@
 {
 "id": "Q6_allow_Out",
 "type": "http request",
-"z": "flow_name",
 "name": "allow_Out",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/allow_Out/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
 "y": 1220,
 "wires": [["Q1"]]
@@ -614,13 +614,13 @@
 {
 "id": "Q6_deny_A",
 "type": "http request",
-"z": "flow_name",
 "name": "deny_A",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/deny_A/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
 "y": 1260,
 "wires": [["Q5"]]
@@ -638,13 +638,13 @@
 {
 "id": "Q6_allow_A[1]",
 "type": "http request",
-"z": "flow_name",
 "name": "allow_A[1]",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/allow_A[1]/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
 "y": 1300,
 "wires": [["Q7"]]
@@ -662,52 +662,16 @@
 {
 "id": "Q6_deny_Out",
 "type": "http request",
-"z": "flow_name",
 "name": "deny_Out",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/deny_Out/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
 "y": 1340,
 "wires": [["Q15"]]
-},
-{
-"id": "Q20",
-"type": "function",
-"z": "flow_name",
-"name": "Q20",
-"func": "flow.set(\"State\", \"Q20\");\n msg.payload = flow.get(\"State\");\n return msg;",
-"noerr": 0,
-"x": 700,
-"y": 1390,
-"wires": [["Q20_allow_Out_set"]]
-},
-{
-"id": "Q20_allow_Out_set",
-"type": "function",
-"z": "flow_name",
-"name": "allow_Out_set",
-"func": "msg.payload = \"allow_Out\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
-"noerr": 0,
-"x": 1400,
-"y": 1390,
-"wires": [["Q20_allow_Out"]]
-},
-{
-"id": "Q20_allow_Out",
-"type": "http request",
-"z": "flow_name",
-"name": "allow_Out",
-"method": "POST",
-"ret": "txt",
-"paytoqs": false,
-"url": "https://maker.ifttt.com/trigger/allow_Out/with/key/cPFBtMhxOsUhT968fhqXb9",
-"persist": false,
-"x": 1700,
-"y": 1390,
-"wires": [["Q1"]]
 },
 {
 "id": "Q7",
@@ -717,7 +681,7 @@
 "func": "flow.set(\"State\", \"Q7\");\n msg.payload = flow.get(\"State\");\n return msg;",
 "noerr": 0,
 "x": 700,
-"y": 1440,
+"y": 1390,
 "wires": [["Q7_check_request"]]
 },
 {
@@ -731,7 +695,7 @@
 "checkall": "true",
 "repair": false,
 "x": 700,
-"y": 1515,
+"y": 1465,
 "wires": [["Q13"],["Q14"],["Q7_wait"]]
 },
 {
@@ -742,7 +706,7 @@
 "func": "var d = new Date();\n var ms = d.getTime();\n var time = flow.get(\"Time\");\n if(ms-time>10000)//10秒\n {\n    flow.set(\"boolean\", true);\n }\n else\n {\n    flow.set(\"boolean\", false);\n }\n return msg;",
 "noerr": 0,
 "x": 700,
-"y": 1590,
+"y": 1540,
 "wires": [["Q7_check_time"]]
 },
 {
@@ -756,7 +720,7 @@
 "checkall": "true",
 "repair": false,
 "x": 700,
-"y": 1590,
+"y": 1540,
 "wires": [["Q7_set"],["Q7"]]
 },
 {
@@ -767,7 +731,7 @@
 "func": "var action = new Array(\"allow_Out\", \"deny_Out\");\n var rnd = Math.floor( Math.random() * 2);\n flow.set(\"action\", action[rnd]);\n return msg;",
 "noerr": 0,
 "x": 900,
-"y": 1590,
+"y": 1540,
 "wires": [["Q7_check_operation"]]
 },
 {
@@ -781,7 +745,7 @@
 "checkall": "true",
 "repair": false,
 "x": 1100,
-"y": 1590,
+"y": 1540,
 "wires": [["Q7_allow_Out_set"], ["Q7_deny_Out_set"]]
 },
 {
@@ -792,21 +756,21 @@
 "func": "msg.payload = \"allow_Out\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
 "noerr": 0,
 "x": 1400,
-"y": 1590,
+"y": 1540,
 "wires": [["Q7_allow_Out"]]
 },
 {
 "id": "Q7_allow_Out",
 "type": "http request",
-"z": "flow_name",
 "name": "allow_Out",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/allow_Out/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
-"y": 1590,
+"y": 1540,
 "wires": [["Q2"]]
 },
 {
@@ -817,21 +781,21 @@
 "func": "msg.payload = \"deny_Out\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
 "noerr": 0,
 "x": 1400,
-"y": 1630,
+"y": 1580,
 "wires": [["Q7_deny_Out"]]
 },
 {
 "id": "Q7_deny_Out",
 "type": "http request",
-"z": "flow_name",
 "name": "deny_Out",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/deny_Out/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
-"y": 1630,
+"y": 1580,
 "wires": [["Q8"]]
 },
 {
@@ -842,7 +806,7 @@
 "func": "flow.set(\"State\", \"Q8\");\n msg.payload = flow.get(\"State\");\n return msg;",
 "noerr": 0,
 "x": 700,
-"y": 1680,
+"y": 1630,
 "wires": [["Q8_check_request"]]
 },
 {
@@ -856,8 +820,8 @@
 "checkall": "true",
 "repair": false,
 "x": 700,
-"y": 1755,
-"wires": [["Q7"],["Q9"],["Q20"],["Q8_delay"]]
+"y": 1705,
+"wires": [["Q7"],["Q9"],["Q12"],["Q8_delay"]]
 },
 {
 "id": "Q8_delay",
@@ -875,7 +839,7 @@
 "randomUnits": "seconds",
 "drop": false,
 "x": 500,
-"y": 1680,
+"y": 1630,
 "wires": [["Q8"]]
 },
 {
@@ -886,7 +850,7 @@
 "func": "flow.set(\"State\", \"Q9\");\n msg.payload = flow.get(\"State\");\n return msg;",
 "noerr": 0,
 "x": 700,
-"y": 1830,
+"y": 1780,
 "wires": [["Q9_check_request"]]
 },
 {
@@ -900,7 +864,7 @@
 "checkall": "true",
 "repair": false,
 "x": 700,
-"y": 1905,
+"y": 1855,
 "wires": [["Q10"],["Q13"],["Q9_wait"]]
 },
 {
@@ -911,7 +875,7 @@
 "func": "var d = new Date();\n var ms = d.getTime();\n var time = flow.get(\"Time\");\n if(ms-time>10000)//10秒\n {\n    flow.set(\"boolean\", true);\n }\n else\n {\n    flow.set(\"boolean\", false);\n }\n return msg;",
 "noerr": 0,
 "x": 700,
-"y": 1980,
+"y": 1930,
 "wires": [["Q9_check_time"]]
 },
 {
@@ -925,7 +889,7 @@
 "checkall": "true",
 "repair": false,
 "x": 700,
-"y": 1980,
+"y": 1930,
 "wires": [["Q9_set"],["Q9"]]
 },
 {
@@ -936,7 +900,7 @@
 "func": "var action = new Array(\"deny_B\");\n var rnd = Math.floor( Math.random() * 1);\n flow.set(\"action\", action[rnd]);\n return msg;",
 "noerr": 0,
 "x": 900,
-"y": 1980,
+"y": 1930,
 "wires": [["Q9_check_operation"]]
 },
 {
@@ -950,7 +914,7 @@
 "checkall": "true",
 "repair": false,
 "x": 1100,
-"y": 1980,
+"y": 1930,
 "wires": [["Q9_deny_B_set"]]
 },
 {
@@ -961,21 +925,21 @@
 "func": "msg.payload = \"deny_B\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
 "noerr": 0,
 "x": 1400,
-"y": 1980,
+"y": 1930,
 "wires": [["Q9_deny_B"]]
 },
 {
 "id": "Q9_deny_B",
 "type": "http request",
-"z": "flow_name",
 "name": "deny_B",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/deny_B/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
-"y": 1980,
+"y": 1930,
 "wires": [["Q8"]]
 },
 {
@@ -986,7 +950,7 @@
 "func": "flow.set(\"State\", \"Q10\");\n msg.payload = flow.get(\"State\");\n return msg;",
 "noerr": 0,
 "x": 700,
-"y": 2030,
+"y": 1980,
 "wires": [["Q10_check_request"]]
 },
 {
@@ -1000,7 +964,7 @@
 "checkall": "true",
 "repair": false,
 "x": 700,
-"y": 2105,
+"y": 2055,
 "wires": [["Q11"],["Q10_wait"]]
 },
 {
@@ -1011,7 +975,7 @@
 "func": "var d = new Date();\n var ms = d.getTime();\n var time = flow.get(\"Time\");\n if(ms-time>10000)//10秒\n {\n    flow.set(\"boolean\", true);\n }\n else\n {\n    flow.set(\"boolean\", false);\n }\n return msg;",
 "noerr": 0,
 "x": 700,
-"y": 2180,
+"y": 2130,
 "wires": [["Q10_check_time"]]
 },
 {
@@ -1025,7 +989,7 @@
 "checkall": "true",
 "repair": false,
 "x": 700,
-"y": 2180,
+"y": 2130,
 "wires": [["Q10_set"],["Q10"]]
 },
 {
@@ -1036,7 +1000,7 @@
 "func": "var action = new Array(\"deny_A\", \"deny_B\");\n var rnd = Math.floor( Math.random() * 2);\n flow.set(\"action\", action[rnd]);\n return msg;",
 "noerr": 0,
 "x": 900,
-"y": 2180,
+"y": 2130,
 "wires": [["Q10_check_operation"]]
 },
 {
@@ -1050,7 +1014,7 @@
 "checkall": "true",
 "repair": false,
 "x": 1100,
-"y": 2180,
+"y": 2130,
 "wires": [["Q10_deny_A_set"], ["Q10_deny_B_set"]]
 },
 {
@@ -1061,21 +1025,21 @@
 "func": "msg.payload = \"deny_A\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
 "noerr": 0,
 "x": 1400,
-"y": 2180,
+"y": 2130,
 "wires": [["Q10_deny_A"]]
 },
 {
 "id": "Q10_deny_A",
 "type": "http request",
-"z": "flow_name",
 "name": "deny_A",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/deny_A/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
-"y": 2180,
+"y": 2130,
 "wires": [["Q9"]]
 },
 {
@@ -1086,21 +1050,21 @@
 "func": "msg.payload = \"deny_B\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
 "noerr": 0,
 "x": 1400,
-"y": 2220,
+"y": 2170,
 "wires": [["Q10_deny_B"]]
 },
 {
 "id": "Q10_deny_B",
 "type": "http request",
-"z": "flow_name",
 "name": "deny_B",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/deny_B/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
-"y": 2220,
+"y": 2170,
 "wires": [["Q12"]]
 },
 {
@@ -1111,7 +1075,7 @@
 "func": "flow.set(\"State\", \"Q11\");\n msg.payload = flow.get(\"State\");\n return msg;",
 "noerr": 0,
 "x": 700,
-"y": 2270,
+"y": 2220,
 "wires": [["Q11_set"]]
 },
 {
@@ -1122,7 +1086,7 @@
 "func": "var action = new Array(\"deny_Out\", \"deny_A\", \"deny_B\", \"allow_Out\");\n var rnd = Math.floor( Math.random() * 4);\n flow.set(\"action\", action[rnd]);\n return msg;",
 "noerr": 0,
 "x": 900,
-"y": 2270,
+"y": 2220,
 "wires": [["Q11_check_operation"]]
 },
 {
@@ -1136,7 +1100,7 @@
 "checkall": "true",
 "repair": false,
 "x": 1100,
-"y": 2270,
+"y": 2220,
 "wires": [["Q11_deny_Out_set"], ["Q11_deny_A_set"], ["Q11_deny_B_set"], ["Q11_allow_Out_set"]]
 },{
 "id": "Q11_deny_Out_set",
@@ -1146,21 +1110,21 @@
 "func": "msg.payload = \"deny_Out\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
 "noerr": 0,
 "x": 1400,
-"y": 2270,
+"y": 2220,
 "wires": [["Q11_deny_Out"]]
 },
 {
 "id": "Q11_deny_Out",
 "type": "http request",
-"z": "flow_name",
 "name": "deny_Out",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/deny_Out/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
-"y": 2270,
+"y": 2220,
 "wires": [["Q10"]]
 },{
 "id": "Q11_deny_A_set",
@@ -1170,21 +1134,21 @@
 "func": "msg.payload = \"deny_A\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
 "noerr": 0,
 "x": 1400,
-"y": 2310,
+"y": 2260,
 "wires": [["Q11_deny_A"]]
 },
 {
 "id": "Q11_deny_A",
 "type": "http request",
-"z": "flow_name",
 "name": "deny_A",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/deny_A/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
-"y": 2310,
+"y": 2260,
 "wires": [["Q13"]]
 },{
 "id": "Q11_deny_B_set",
@@ -1194,21 +1158,21 @@
 "func": "msg.payload = \"deny_B\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
 "noerr": 0,
 "x": 1400,
-"y": 2350,
+"y": 2300,
 "wires": [["Q11_deny_B"]]
 },
 {
 "id": "Q11_deny_B",
 "type": "http request",
-"z": "flow_name",
 "name": "deny_B",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/deny_B/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
-"y": 2350,
+"y": 2300,
 "wires": [["Q14"]]
 },{
 "id": "Q11_allow_Out_set",
@@ -1218,21 +1182,21 @@
 "func": "msg.payload = \"allow_Out\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
 "noerr": 0,
 "x": 1400,
-"y": 2390,
+"y": 2340,
 "wires": [["Q11_allow_Out"]]
 },
 {
 "id": "Q11_allow_Out",
 "type": "http request",
-"z": "flow_name",
 "name": "allow_Out",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/allow_Out/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
-"y": 2390,
+"y": 2340,
 "wires": [["Q16"]]
 },
 {
@@ -1243,7 +1207,7 @@
 "func": "flow.set(\"State\", \"Q12\");\n msg.payload = flow.get(\"State\");\n return msg;",
 "noerr": 0,
 "x": 700,
-"y": 2440,
+"y": 2390,
 "wires": [["Q12_check_request"]]
 },
 {
@@ -1257,7 +1221,7 @@
 "checkall": "true",
 "repair": false,
 "x": 700,
-"y": 2515,
+"y": 2465,
 "wires": [["Q10"],["Q14"],["Q12_wait"]]
 },
 {
@@ -1268,7 +1232,7 @@
 "func": "var d = new Date();\n var ms = d.getTime();\n var time = flow.get(\"Time\");\n if(ms-time>10000)//10秒\n {\n    flow.set(\"boolean\", true);\n }\n else\n {\n    flow.set(\"boolean\", false);\n }\n return msg;",
 "noerr": 0,
 "x": 700,
-"y": 2590,
+"y": 2540,
 "wires": [["Q12_check_time"]]
 },
 {
@@ -1282,7 +1246,7 @@
 "checkall": "true",
 "repair": false,
 "x": 700,
-"y": 2590,
+"y": 2540,
 "wires": [["Q12_set"],["Q12"]]
 },
 {
@@ -1293,7 +1257,7 @@
 "func": "var action = new Array(\"deny_A\");\n var rnd = Math.floor( Math.random() * 1);\n flow.set(\"action\", action[rnd]);\n return msg;",
 "noerr": 0,
 "x": 900,
-"y": 2590,
+"y": 2540,
 "wires": [["Q12_check_operation"]]
 },
 {
@@ -1307,7 +1271,7 @@
 "checkall": "true",
 "repair": false,
 "x": 1100,
-"y": 2590,
+"y": 2540,
 "wires": [["Q12_deny_A_set"]]
 },
 {
@@ -1318,21 +1282,21 @@
 "func": "msg.payload = \"deny_A\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
 "noerr": 0,
 "x": 1400,
-"y": 2590,
+"y": 2540,
 "wires": [["Q12_deny_A"]]
 },
 {
 "id": "Q12_deny_A",
 "type": "http request",
-"z": "flow_name",
 "name": "deny_A",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/deny_A/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
-"y": 2590,
+"y": 2540,
 "wires": [["Q8"]]
 },
 {
@@ -1343,7 +1307,7 @@
 "func": "flow.set(\"State\", \"Q13\");\n msg.payload = flow.get(\"State\");\n return msg;",
 "noerr": 0,
 "x": 700,
-"y": 2640,
+"y": 2590,
 "wires": [["Q13_check_request"]]
 },
 {
@@ -1357,7 +1321,7 @@
 "checkall": "true",
 "repair": false,
 "x": 700,
-"y": 2715,
+"y": 2665,
 "wires": [["Q11"],["Q13_wait"]]
 },
 {
@@ -1368,7 +1332,7 @@
 "func": "var d = new Date();\n var ms = d.getTime();\n var time = flow.get(\"Time\");\n if(ms-time>10000)//10秒\n {\n    flow.set(\"boolean\", true);\n }\n else\n {\n    flow.set(\"boolean\", false);\n }\n return msg;",
 "noerr": 0,
 "x": 700,
-"y": 2790,
+"y": 2740,
 "wires": [["Q13_check_time"]]
 },
 {
@@ -1382,7 +1346,7 @@
 "checkall": "true",
 "repair": false,
 "x": 700,
-"y": 2790,
+"y": 2740,
 "wires": [["Q13_set"],["Q13"]]
 },
 {
@@ -1393,7 +1357,7 @@
 "func": "var action = new Array(\"allow_Out\", \"deny_B\", \"deny_Out\");\n var rnd = Math.floor( Math.random() * 3);\n flow.set(\"action\", action[rnd]);\n return msg;",
 "noerr": 0,
 "x": 900,
-"y": 2790,
+"y": 2740,
 "wires": [["Q13_check_operation"]]
 },
 {
@@ -1407,7 +1371,7 @@
 "checkall": "true",
 "repair": false,
 "x": 1100,
-"y": 2790,
+"y": 2740,
 "wires": [["Q13_allow_Out_set"], ["Q13_deny_B_set"], ["Q13_deny_Out_set"]]
 },
 {
@@ -1418,21 +1382,21 @@
 "func": "msg.payload = \"allow_Out\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
 "noerr": 0,
 "x": 1400,
-"y": 2790,
+"y": 2740,
 "wires": [["Q13_allow_Out"]]
 },
 {
 "id": "Q13_allow_Out",
 "type": "http request",
-"z": "flow_name",
 "name": "allow_Out",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/allow_Out/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
-"y": 2790,
+"y": 2740,
 "wires": [["Q3"]]
 },
 {
@@ -1443,21 +1407,21 @@
 "func": "msg.payload = \"deny_B\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
 "noerr": 0,
 "x": 1400,
-"y": 2830,
+"y": 2780,
 "wires": [["Q13_deny_B"]]
 },
 {
 "id": "Q13_deny_B",
 "type": "http request",
-"z": "flow_name",
 "name": "deny_B",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/deny_B/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
-"y": 2830,
+"y": 2780,
 "wires": [["Q7"]]
 },
 {
@@ -1468,21 +1432,21 @@
 "func": "msg.payload = \"deny_Out\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
 "noerr": 0,
 "x": 1400,
-"y": 2870,
+"y": 2820,
 "wires": [["Q13_deny_Out"]]
 },
 {
 "id": "Q13_deny_Out",
 "type": "http request",
-"z": "flow_name",
 "name": "deny_Out",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/deny_Out/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
-"y": 2870,
+"y": 2820,
 "wires": [["Q9"]]
 },
 {
@@ -1493,7 +1457,7 @@
 "func": "flow.set(\"State\", \"Q14\");\n msg.payload = flow.get(\"State\");\n return msg;",
 "noerr": 0,
 "x": 700,
-"y": 2920,
+"y": 2870,
 "wires": [["Q14_check_request"]]
 },
 {
@@ -1507,7 +1471,7 @@
 "checkall": "true",
 "repair": false,
 "x": 700,
-"y": 2995,
+"y": 2945,
 "wires": [["Q11"],["Q14_wait"]]
 },
 {
@@ -1518,7 +1482,7 @@
 "func": "var d = new Date();\n var ms = d.getTime();\n var time = flow.get(\"Time\");\n if(ms-time>10000)//10秒\n {\n    flow.set(\"boolean\", true);\n }\n else\n {\n    flow.set(\"boolean\", false);\n }\n return msg;",
 "noerr": 0,
 "x": 700,
-"y": 3070,
+"y": 3020,
 "wires": [["Q14_check_time"]]
 },
 {
@@ -1532,7 +1496,7 @@
 "checkall": "true",
 "repair": false,
 "x": 700,
-"y": 3070,
+"y": 3020,
 "wires": [["Q14_set"],["Q14"]]
 },
 {
@@ -1543,7 +1507,7 @@
 "func": "var action = new Array(\"deny_A\", \"deny_Out\", \"allow_Out\");\n var rnd = Math.floor( Math.random() * 3);\n flow.set(\"action\", action[rnd]);\n return msg;",
 "noerr": 0,
 "x": 900,
-"y": 3070,
+"y": 3020,
 "wires": [["Q14_check_operation"]]
 },
 {
@@ -1557,7 +1521,7 @@
 "checkall": "true",
 "repair": false,
 "x": 1100,
-"y": 3070,
+"y": 3020,
 "wires": [["Q14_deny_A_set"], ["Q14_deny_Out_set"], ["Q14_allow_Out_set"]]
 },
 {
@@ -1568,21 +1532,21 @@
 "func": "msg.payload = \"deny_A\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
 "noerr": 0,
 "x": 1400,
-"y": 3070,
+"y": 3020,
 "wires": [["Q14_deny_A"]]
 },
 {
 "id": "Q14_deny_A",
 "type": "http request",
-"z": "flow_name",
 "name": "deny_A",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/deny_A/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
-"y": 3070,
+"y": 3020,
 "wires": [["Q7"]]
 },
 {
@@ -1593,21 +1557,21 @@
 "func": "msg.payload = \"deny_Out\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
 "noerr": 0,
 "x": 1400,
-"y": 3110,
+"y": 3060,
 "wires": [["Q14_deny_Out"]]
 },
 {
 "id": "Q14_deny_Out",
 "type": "http request",
-"z": "flow_name",
 "name": "deny_Out",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/deny_Out/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
-"y": 3110,
+"y": 3060,
 "wires": [["Q12"]]
 },
 {
@@ -1618,21 +1582,21 @@
 "func": "msg.payload = \"allow_Out\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
 "noerr": 0,
 "x": 1400,
-"y": 3150,
+"y": 3100,
 "wires": [["Q14_allow_Out"]]
 },
 {
 "id": "Q14_allow_Out",
 "type": "http request",
-"z": "flow_name",
 "name": "allow_Out",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/allow_Out/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
-"y": 3150,
+"y": 3100,
 "wires": [["Q17"]]
 },
 {
@@ -1643,7 +1607,7 @@
 "func": "flow.set(\"State\", \"Q15\");\n msg.payload = flow.get(\"State\");\n return msg;",
 "noerr": 0,
 "x": 700,
-"y": 3200,
+"y": 3150,
 "wires": [["Q15_check_request"]]
 },
 {
@@ -1657,7 +1621,7 @@
 "checkall": "true",
 "repair": false,
 "x": 700,
-"y": 3275,
+"y": 3225,
 "wires": [["Q6"],["Q15_wait"]]
 },
 {
@@ -1668,7 +1632,7 @@
 "func": "var d = new Date();\n var ms = d.getTime();\n var time = flow.get(\"Time\");\n if(ms-time>10000)//10秒\n {\n    flow.set(\"boolean\", true);\n }\n else\n {\n    flow.set(\"boolean\", false);\n }\n return msg;",
 "noerr": 0,
 "x": 700,
-"y": 3350,
+"y": 3300,
 "wires": [["Q15_check_time"]]
 },
 {
@@ -1682,7 +1646,7 @@
 "checkall": "true",
 "repair": false,
 "x": 700,
-"y": 3350,
+"y": 3300,
 "wires": [["Q15_set"],["Q15"]]
 },
 {
@@ -1693,7 +1657,7 @@
 "func": "var action = new Array(\"deny_A\", \"allow_A[1]\");\n var rnd = Math.floor( Math.random() * 2);\n flow.set(\"action\", action[rnd]);\n return msg;",
 "noerr": 0,
 "x": 900,
-"y": 3350,
+"y": 3300,
 "wires": [["Q15_check_operation"]]
 },
 {
@@ -1707,7 +1671,7 @@
 "checkall": "true",
 "repair": false,
 "x": 1100,
-"y": 3350,
+"y": 3300,
 "wires": [["Q15_deny_A_set"], ["Q15_allow_A[1]_set"]]
 },
 {
@@ -1718,21 +1682,21 @@
 "func": "msg.payload = \"deny_A\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
 "noerr": 0,
 "x": 1400,
-"y": 3350,
+"y": 3300,
 "wires": [["Q15_deny_A"]]
 },
 {
 "id": "Q15_deny_A",
 "type": "http request",
-"z": "flow_name",
 "name": "deny_A",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/deny_A/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
-"y": 3350,
+"y": 3300,
 "wires": [["Q4"]]
 },
 {
@@ -1743,21 +1707,21 @@
 "func": "msg.payload = \"allow_A[1]\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
 "noerr": 0,
 "x": 1400,
-"y": 3390,
+"y": 3340,
 "wires": [["Q15_allow_A[1]"]]
 },
 {
 "id": "Q15_allow_A[1]",
 "type": "http request",
-"z": "flow_name",
 "name": "allow_A[1]",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/allow_A[1]/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
-"y": 3390,
+"y": 3340,
 "wires": [["Q8"]]
 },
 {
@@ -1768,7 +1732,7 @@
 "func": "flow.set(\"State\", \"Q16\");\n msg.payload = flow.get(\"State\");\n return msg;",
 "noerr": 0,
 "x": 700,
-"y": 3440,
+"y": 3390,
 "wires": [["Q16_set"]]
 },
 {
@@ -1779,7 +1743,7 @@
 "func": "var action = new Array(\"deny_A\", \"allow_B[1]\", \"deny_B\");\n var rnd = Math.floor( Math.random() * 3);\n flow.set(\"action\", action[rnd]);\n return msg;",
 "noerr": 0,
 "x": 900,
-"y": 3440,
+"y": 3390,
 "wires": [["Q16_check_operation"]]
 },
 {
@@ -1793,7 +1757,7 @@
 "checkall": "true",
 "repair": false,
 "x": 1100,
-"y": 3440,
+"y": 3390,
 "wires": [["Q16_deny_A_set"], ["Q16_allow_B[1]_set"], ["Q16_deny_B_set"]]
 },{
 "id": "Q16_deny_A_set",
@@ -1803,21 +1767,21 @@
 "func": "msg.payload = \"deny_A\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
 "noerr": 0,
 "x": 1400,
-"y": 3440,
+"y": 3390,
 "wires": [["Q16_deny_A"]]
 },
 {
 "id": "Q16_deny_A",
 "type": "http request",
-"z": "flow_name",
 "name": "deny_A",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/deny_A/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
-"y": 3440,
+"y": 3390,
 "wires": [["Q3"]]
 },{
 "id": "Q16_allow_B[1]_set",
@@ -1827,21 +1791,21 @@
 "func": "msg.payload = \"allow_B[1]\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
 "noerr": 0,
 "x": 1400,
-"y": 3480,
+"y": 3430,
 "wires": [["Q16_allow_B[1]"]]
 },
 {
 "id": "Q16_allow_B[1]",
 "type": "http request",
-"z": "flow_name",
 "name": "allow_B[1]",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/allow_B[1]/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
-"y": 3480,
+"y": 3430,
 "wires": [["Q15"]]
 },{
 "id": "Q16_deny_B_set",
@@ -1851,21 +1815,21 @@
 "func": "msg.payload = \"deny_B\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
 "noerr": 0,
 "x": 1400,
-"y": 3520,
+"y": 3470,
 "wires": [["Q16_deny_B"]]
 },
 {
 "id": "Q16_deny_B",
 "type": "http request",
-"z": "flow_name",
 "name": "deny_B",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/deny_B/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
-"y": 3520,
+"y": 3470,
 "wires": [["Q17"]]
 },
 {
@@ -1876,7 +1840,7 @@
 "func": "flow.set(\"State\", \"Q17\");\n msg.payload = flow.get(\"State\");\n return msg;",
 "noerr": 0,
 "x": 700,
-"y": 3570,
+"y": 3520,
 "wires": [["Q17_check_request"]]
 },
 {
@@ -1890,7 +1854,7 @@
 "checkall": "true",
 "repair": false,
 "x": 700,
-"y": 3645,
+"y": 3595,
 "wires": [["Q16"],["Q17_wait"]]
 },
 {
@@ -1901,7 +1865,7 @@
 "func": "var d = new Date();\n var ms = d.getTime();\n var time = flow.get(\"Time\");\n if(ms-time>10000)//10秒\n {\n    flow.set(\"boolean\", true);\n }\n else\n {\n    flow.set(\"boolean\", false);\n }\n return msg;",
 "noerr": 0,
 "x": 700,
-"y": 3720,
+"y": 3670,
 "wires": [["Q17_check_time"]]
 },
 {
@@ -1915,7 +1879,7 @@
 "checkall": "true",
 "repair": false,
 "x": 700,
-"y": 3720,
+"y": 3670,
 "wires": [["Q17_set"],["Q17"]]
 },
 {
@@ -1926,7 +1890,7 @@
 "func": "var action = new Array(\"deny_A\");\n var rnd = Math.floor( Math.random() * 1);\n flow.set(\"action\", action[rnd]);\n return msg;",
 "noerr": 0,
 "x": 900,
-"y": 3720,
+"y": 3670,
 "wires": [["Q17_check_operation"]]
 },
 {
@@ -1940,7 +1904,7 @@
 "checkall": "true",
 "repair": false,
 "x": 1100,
-"y": 3720,
+"y": 3670,
 "wires": [["Q17_deny_A_set"]]
 },
 {
@@ -1951,21 +1915,21 @@
 "func": "msg.payload = \"deny_A\";\nflow.set(\"action\", msg.payload);\nreturn msg;",
 "noerr": 0,
 "x": 1400,
-"y": 3720,
+"y": 3670,
 "wires": [["Q17_deny_A"]]
 },
 {
 "id": "Q17_deny_A",
 "type": "http request",
-"z": "flow_name",
 "name": "deny_A",
 "method": "POST",
 "ret": "txt",
 "paytoqs": false,
 "url": "https://maker.ifttt.com/trigger/deny_A/with/key/cPFBtMhxOsUhT968fhqXb9",
 "persist": false,
+"z": "flow_name",
 "x": 1700,
-"y": 3720,
+"y": 3670,
 "wires": [["Q2"]]
 }
 ]

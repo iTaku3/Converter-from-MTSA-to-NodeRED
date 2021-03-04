@@ -16,20 +16,33 @@ class Main
   public static void main(String args[])
   {
     System.out.println("--notification-------------------------------------------------");
-    System.out.println("\"./*input\"フォルダ内にある，");
-    System.out.println("MTSAで合成したControllerのファイル名(拡張子も含む)を入力してください．");
+    System.out.println("\'./*input\'フォルダ内にある，各ファイルのアドレスを入力してください．");
+    System.out.println(" > controller file : MTSAで合成したControllerのファイル名(拡張子も含む)");
+    System.out.println(" > connexion file  : Controllerにおけるactionに対応するノードを記述したファイル名(拡張子も含む)");
     System.out.println("---------------------------------------------------------------");
-    System.out.print("file address : ./*input/");
+    System.out.print("controller file address : ./*input/");
     Scanner scan = new Scanner(System.in);
-    String file_name = scan.nextLine();
+    String controller_file_name = scan.nextLine();
+    System.out.print("connexion file address  : ./*input/");
+    String connexion_file_name = scan.nextLine();
     System.out.println("-------------------------------");
 
-    try{
-      File file = new File("./*input/"+file_name);
-      // File file = new File("./*sample/TwoRoom/Controller.txt");
+    System.out.println(controller_file_name);  
+    System.out.println(connexion_file_name);
 
-      if (checkBeforeReadfile(file)){
-        BufferedReader br = new BufferedReader(new FileReader(file));
+    //Sample
+    controller_file_name = "Controller.txt";
+    connexion_file_name  = "Connexion.txt";
+
+    try{
+      File controller_file = new File("./*input/"+controller_file_name);
+      File connexion_file = new File("./*input/"+connexion_file_name);
+      //File controller_file = new File("./*sample/TwoRoom/Controller.txt");
+
+      if (checkBeforeReadfile(controller_file)){
+        
+        //Controllerの読み込み
+        BufferedReader br = new BufferedReader(new FileReader(controller_file));
 
         String str;
         List<String> lts_data = new ArrayList<String>();
@@ -43,13 +56,40 @@ class Main
         for (int count = 0 ; count<6 ; count++ ){
         	lts_data.remove(0);
         }
+        br.close();
+
+        //Connexionの読み込み
+        br = new BufferedReader(new FileReader(connexion_file));
+        List<String> action_data = new ArrayList<String>();
+        List<List<String>> node_data = new ArrayList<List<String>>();
+        List<String> js_data = new ArrayList<String>();
+
+        while((str = br.readLine()) != null)
+        {  
+          if(str.contains(">>>"))
+          {
+            if(!js_data.isEmpty())
+            {
+              node_data.add(js_data);
+              js_data = new ArrayList<String>();
+            }
+            str = str.replace(">>>", "").replace(",", "");
+            action_data.add(str.trim());
+
+          }else{
+            if(!str.equals("")) js_data.add(str.trim());
+          }
+        }
+        node_data.add(js_data);
+        br.close();
+
         //System.out.println(lts_data);
+        System.out.println(action_data+"\n");
+        System.out.println(node_data+"\n");
         long start = System.currentTimeMillis();
-        Converter.convert(lts_data);
+        Converter.convert(lts_data, action_data, node_data);
         long end = System.currentTimeMillis();
         System.out.println("実行時間："+ (end - start)  + "ms");
-
-        br.close();
       }else{
         System.out.println("ファイルが見つからないか開けません");
       }

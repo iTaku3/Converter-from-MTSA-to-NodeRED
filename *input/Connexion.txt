@@ -1,0 +1,64 @@
+>>> allow_A[1],
+"type": "http request",
+"name": "allow_A[1]",
+"method": "POST",
+"ret": "txt",
+"paytoqs": false,
+"url": "https://maker.ifttt.com/trigger/allow_A[1]/with/key/cPFBtMhxOsUhT968fhqXb9",
+"persist": false,
+
+
+>>> deny_A,
+"type": "http request",
+"name": "deny_A",
+"method": "POST",
+"ret": "txt",
+"paytoqs": false,
+"url": "https://maker.ifttt.com/trigger/deny_A/with/key/cPFBtMhxOsUhT968fhqXb9",
+"persist": false,
+
+
+
+>>> allow_B[1],
+"type": "http request",
+"name": "allow_B[1]",
+"method": "POST",
+"ret": "txt",
+"paytoqs": false,
+"url": "https://maker.ifttt.com/trigger/allow_B[1]/with/key/cPFBtMhxOsUhT968fhqXb9",
+"persist": false,
+
+
+
+>>> deny_B,
+"type": "http request",
+"name": "deny_B",
+"method": "POST",
+"ret": "txt",
+"paytoqs": false,
+"url": "https://maker.ifttt.com/trigger/deny_B/with/key/cPFBtMhxOsUhT968fhqXb9",
+"persist": false,
+
+
+
+>>> allow_Out,
+"type": "http request",
+"name": "allow_Out",
+"method": "POST",
+"ret": "txt",
+"paytoqs": false,
+"url": "https://maker.ifttt.com/trigger/allow_Out/with/key/cPFBtMhxOsUhT968fhqXb9",
+"persist": false,
+
+
+
+>>> deny_Out,
+"type": "http request",
+"name": "deny_Out",
+"method": "POST",
+"ret": "txt",
+"paytoqs": false,
+"url": "https://maker.ifttt.com/trigger/deny_Out/with/key/cPFBtMhxOsUhT968fhqXb9",
+"persist": false,
+
+

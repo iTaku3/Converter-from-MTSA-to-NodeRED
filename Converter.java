@@ -12,7 +12,7 @@ import java.io.IOException;
 
 class Converter
 {
-	public static void convert(List<String> lts_data)
+	public static void convert(List<String> lts_data, List<String> action_data, List<List<String>> node_data)
 	{
 		//Controllable Actionsも外部から読み込み？
 		// List<String> controllable_actions = new ArrayList<String>();
@@ -219,8 +219,7 @@ class Converter
 		  bw.newLine();
 		  y_position = y_position + 50;
 
-
-		  int transition_count = 0;
+int transition_count = 0;
 		  for(String transition : lts_data)
 		  {
 			List<String> transition_list 
@@ -241,6 +240,7 @@ class Converter
 					controllableAction_count++;
 				}
 			}
+		  
 
 			//状態の判定
 			if(controllableAction_count == 1 && controllableAction_count == (transition_list.size()-1)/2)
@@ -302,21 +302,11 @@ class Converter
 				bw.newLine();
 				bw.write("\"id\": \""+transition_list.get(0)+"_"+transition_list.get(1)+"\",");
 				bw.newLine();
-				bw.write("\"type\": \"http request\",");
-				bw.newLine();
+				for(String str : node_data.get(action_data.indexOf(transition_list.get(1)))){
+	            	bw.write(str);
+					bw.newLine();
+        		}
 				bw.write("\"z\": \"flow_name\",");
-				bw.newLine();
-				bw.write("\"name\": \"" + transition_list.get(1) + "\",");
-				bw.newLine();
-				bw.write("\"method\": \"POST\",");
-				bw.newLine();
-				bw.write("\"ret\": \"txt\",");
-				bw.newLine();
-				bw.write("\"paytoqs\": false,");
-				bw.newLine();
-				bw.write("\"url\": \"https://maker.ifttt.com/trigger/"+ transition_list.get(1) +"/with/key/"+ifttt_key+"\",");
-				bw.newLine();
-				bw.write("\"persist\": false,");
 				bw.newLine();
 				bw.write("\"x\": "+ (x_position+1000) +",");
 				bw.newLine();
@@ -573,21 +563,11 @@ class Converter
 					bw.newLine();
 					bw.write("\"id\": \""+transition_list.get(0)+"_"+transition_list.get(2*n-1)+"\",");
 					bw.newLine();
-					bw.write("\"type\": \"http request\",");
-					bw.newLine();
-					bw.write("\"z\": \"flow_name\",");
-					bw.newLine();
-					bw.write("\"name\": \"" + transition_list.get(2*n-1) + "\",");
-					bw.newLine();
-					bw.write("\"method\": \"POST\",");
-					bw.newLine();
-					bw.write("\"ret\": \"txt\",");
-					bw.newLine();
-					bw.write("\"paytoqs\": false,");
-					bw.newLine();
-					bw.write("\"url\": \"https://maker.ifttt.com/trigger/"+ transition_list.get(2*n-1) +"/with/key/"+ifttt_key+"\",");
-					bw.newLine();
-					bw.write("\"persist\": false,");
+					for(String str : node_data.get(action_data.indexOf(transition_list.get(2*n-1)))){
+		            	bw.write(str);
+						bw.newLine();
+	        		}
+	        		bw.write("\"z\": \"flow_name\",");
 					bw.newLine();
 					bw.write("\"x\": "+ (x_position+1000) +",");
 					bw.newLine();
@@ -884,21 +864,11 @@ class Converter
 						bw.newLine();
 						bw.write("\"id\": \""+transition_list.get(0)+"_"+transition_list.get(2*n-1)+"\",");
 						bw.newLine();
-						bw.write("\"type\": \"http request\",");
-						bw.newLine();
-						bw.write("\"z\": \"flow_name\",");
-						bw.newLine();
-						bw.write("\"name\": \"" + transition_list.get(2*n-1) + "\",");
-						bw.newLine();
-						bw.write("\"method\": \"POST\",");
-						bw.newLine();
-						bw.write("\"ret\": \"txt\",");
-						bw.newLine();
-						bw.write("\"paytoqs\": false,");
-						bw.newLine();
-						bw.write("\"url\": \"https://maker.ifttt.com/trigger/"+ transition_list.get(2*n-1) +"/with/key/"+ifttt_key+"\",");
-						bw.newLine();
-						bw.write("\"persist\": false,");
+						for(String str : node_data.get(action_data.indexOf(transition_list.get(2*n-1)))){
+			            	bw.write(str);
+							bw.newLine();
+	        			}
+	        			bw.write("\"z\": \"flow_name\",");
 						bw.newLine();
 						bw.write("\"x\": "+ (x_position+1000) +",");
 						bw.newLine();
